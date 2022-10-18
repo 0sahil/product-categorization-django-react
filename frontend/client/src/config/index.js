@@ -1,1 +1,1 @@
-export const API_URL = process.env.REACT_APP_API_URL;  // just use the shorter naming for convenience
+export const API_URL = process.env.REACT_APP_API_URL;
