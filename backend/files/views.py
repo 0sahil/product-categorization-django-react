@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.conf import settings
 from rest_framework import viewsets, routers
 from .serializers import InputFilesSerializer
 from .models import InputFiles, OutputFiles
@@ -33,10 +34,11 @@ class InputFilesView(viewsets.ModelViewSet):
         # writer = csv.writer(f_)
         writer = csv.writer(response)
         reader = csv.reader(f)
+        print(settings.RAPID_API_KEY)
         url = 'https://twinword-category-recommendation-api.p.rapidapi.com/recommend/?text='
         for row in reader:
             req = requests.get(url+row[0], headers={
-                'X-RapidAPI-Key':'0b5f43f641msh8ea409c6e9b34e4p1a4b13jsn0e86ad14e593', 
+                'X-RapidAPI-Key': settings.RAPID_API_KEY, 
                 'X-RapidAPI-Host': 'twinword-category-recommendation-api.p.rapidapi.com'
                 }
             )

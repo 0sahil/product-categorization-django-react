@@ -2,3 +2,5 @@ backend/venv
 frontend/node_modules
 frontend/client/node_modules
 frontend/client/build
+.DS_Store
+backend/auth_site/.env
